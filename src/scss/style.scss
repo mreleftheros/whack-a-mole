@@ -1,2 +1,92 @@
 @import "defaults";
 @import "mixins";
+
+.main {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(rgb(41, 129, 128), rgb(183, 110, 255));
+  overflow: hidden;
+
+  // start screen
+  &__start-screen.active {
+    display: flex;
+  }
+
+  &__start-screen {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 40rem;
+    height: 40rem;
+    background: rgba(255, 255, 255, .7);
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 0 5px #000;
+
+    &__btn {
+      border: none;
+      background: rgb(250, 192, 192);
+      padding: 1rem;
+      border-radius: 1.5rem;
+      cursor: pointer;
+      font-size: 2.5rem;
+      transition: transform .15s ease-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  // game
+  &__game {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 100vh;
+    background: rgb(230, 201, 201);
+    width: 100%;
+    max-width: 100rem;
+    margin: auto;
+
+    &__hole {
+      position: relative;
+      justify-self: center;
+      align-self: center;
+      width: 10rem;
+      height: 10rem;
+      overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      border-radius: 45%;
+      width: 100%;
+      height: 3rem;
+      transform: translateY(-100%);
+      background: #000;
+    }      
+
+      &__mouse.show {
+        transform: translateY(-10rem);
+      }
+      
+      &__mouse {
+        position: absolute;
+        display: block;
+        z-index: 1;
+        top: 51%;
+        left: -54%;
+      }
+    }
+  }
+}
