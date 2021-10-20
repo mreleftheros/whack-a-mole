@@ -5,7 +5,7 @@ class Game {
     this.score = 0;
     this.timer = null;
     this.lastMouseIndex = null;
-    this.miceSum = 9;
+    this.totalMice = 9;
   }
   reset() {
     this.score = 0;
@@ -19,15 +19,19 @@ class Game {
     let randomIndex;
     
     do {
-      randomIndex = Math.floor(Math.random() * this.miceSum);
+      randomIndex = Math.floor(Math.random() * this.totalMice);
     } while (randomIndex === this.lastMouseIndex)
 
     this.lastMouseIndex = randomIndex;
     
     return ui.showMouse(randomIndex);
   }
-  selectMouse() {
-
+  getNextMouse() {
+    this.updateScore();
+    return this.setRandomMouseIndex();
+  }
+  updateScore() {
+    this.score++;
   }
 }
 
