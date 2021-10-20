@@ -3,16 +3,20 @@ import ui from "./ui";
 class Game {
   constructor() {
     this.score = 0;
-    this.timer = null;
+    this.timer;
     this.lastMouseIndex = null;
     this.totalMice = 9;
+    this.time = 30;
   }
   reset() {
     this.score = 0;
+    this.time = 0;
+    this.timer = null;
     this.lastMouseIndex = null;
   }
   init() {
     this.reset();
+    this.startTimer();
     this.setRandomMouseIndex();
   }
   setRandomMouseIndex() {
@@ -33,6 +37,17 @@ class Game {
   updateScore() {
     this.score++;
     return ui.updateAddons(null, this.score);
+  }
+  startTimer() {
+    this.timer = setInterval(() => {
+      this.time--;
+      ui.updateAddons(this.time, null);
+
+      if (this.time === 0) {
+        clearInterval(this.timer);
+        return ui.renderEndScreen();
+      }
+    })
   }
 }
 
