@@ -45,6 +45,9 @@ class Ui {
       }
     }, 1000)
   }
+  selectMouse(e) {
+    console.log(e.currentTarget.getAttribute("data-index"));
+  }
 }
 
 export default new Ui();
