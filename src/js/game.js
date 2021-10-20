@@ -9,6 +9,7 @@ class Game {
     this.totalSeconds = 30;
     this.startTime;
     this.endTime;
+    this.isPlaying = false;
   }
   reset() {
     this.score = 0;
@@ -18,7 +19,8 @@ class Game {
     this.lastMouseIndex = null;
   }
   init() {
-    // this.reset();
+    this.reset();
+    this.isPlaying = true;
     this.setTimer();
     this.setRandomMouseIndex();
   }
@@ -56,7 +58,8 @@ class Game {
 
       if (time === this.totalSeconds) {
         clearInterval(this.timer);
-        // return ui.renderEndScreen();
+        this.isPlaying = false;
+        return ui.renderEndScreen(this.score);
       }
     })
   }

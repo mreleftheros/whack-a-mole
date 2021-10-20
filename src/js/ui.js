@@ -9,6 +9,7 @@ class Ui {
     this.mice = document.querySelectorAll(".main__game__hole__svg__mouse");
     this.timer = document.getElementById("timer");
     this.score = document.getElementById("score");
+    this.message = document.getElementById("message");
   }
   init() {
     this.startBtn.addEventListener("click", () => this.startGame());
@@ -24,6 +25,7 @@ class Ui {
     let counter = 3;
     let timer;
 
+    this.message.innerHTML = "";
     audioElement.play();
     this.countdown.classList.add("active");
     this.mice.forEach(mouse => {
@@ -42,6 +44,7 @@ class Ui {
 
         setTimeout(() => {
           this.countdown.classList.remove("active");
+          this.timerElement.innerHTML = "";
           return game.init();
         }, 1000)
       }
@@ -53,6 +56,8 @@ class Ui {
     mouse.classList.add("visible");
   }
   selectMouse(e) {
+    if (!game.isPlaying) return; // check
+
     e.currentTarget.classList.remove('visible');
 
     return game.getNextMouse();
@@ -70,6 +75,10 @@ class Ui {
     else if (score !== null) {
       this.score.innerHTML = score;
     }
+  }
+  renderEndScreen(points) {
+    this.startScreen.classList.add("active");
+    this.message.innerHTML = `Game Over! Total Points: ${points}!`; 
   }
 }
 
