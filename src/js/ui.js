@@ -65,7 +65,7 @@ class Ui {
         time = "0" + time;
       }
 
-      this.time.innerHTML = `${time}:00`;
+      this.timer.innerHTML = `${time}:00`;
     }
     else if (score !== null) {
       this.score.innerHTML = score;
