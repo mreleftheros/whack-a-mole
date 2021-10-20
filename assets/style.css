@@ -158,15 +158,18 @@ body {
   background: brown;
   background: radial-gradient(ellipse at top, #862222, #5f1818);
 }
-.main__game__hole__mouse.visible {
-  transform: translateY(-15rem);
-}
-.main__game__hole__mouse {
+.main__game__hole__svg {
   position: absolute;
   display: block;
   z-index: 1;
-  top: 100%;
+  top: 0;
   left: 0;
   width: 100%;
-  transition: transform 0.15s linear;
+}
+.main__game__hole__svg__mouse.visible {
+  transform: translate(-2.8rem, -4.5rem);
+}
+.main__game__hole__svg__mouse {
+  transform: translate(-2.8rem, 11rem);
+  transition: transform 0.15s ease;
 }
