@@ -7,6 +7,8 @@ class Ui {
     this.countdown = document.getElementById("countdown");
     this.addons = document.getElementById("addons");
     this.mice = document.querySelectorAll(".main__game__hole__svg__mouse");
+    this.timer = document.getElementById("timer");
+    this.score = document.getElementById("score");
   }
   init() {
     this.startBtn.addEventListener("click", () => this.startGame());
@@ -54,6 +56,11 @@ class Ui {
     e.currentTarget.classList.remove('visible');
 
     return game.getNextMouse();
+  }
+  updateAddons(time, score) {
+    if (score !== null) {
+      this.score.innerHTML = score;
+    }
   }
 }
 
