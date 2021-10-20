@@ -166,19 +166,24 @@
         background: brown;
         background: radial-gradient(ellipse at top, rgb(134, 34, 34), rgb(95, 24, 24));
       }
-
-      &__mouse.visible {
-        transform: translateY(-15rem);
-      }
   
-      &__mouse {
+      &__svg {
         position: absolute;
         display: block;
         z-index: 1;
-        top: 100%;
+        top: 0;
         left: 0;
         width: 100%;
-        transition: transform .15s linear;
+        // background: red;
+
+        &__mouse.visible {
+          transform: translate(-2.8rem, -4.5rem);
+        }
+
+        &__mouse {
+          transform: translate(-2.8rem, 11rem);
+          transition: transform .15s ease;
+        }
       }
     }      
   }

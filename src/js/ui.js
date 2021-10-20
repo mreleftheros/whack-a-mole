@@ -6,9 +6,10 @@ class Ui {
     this.startScreen = document.getElementById("startScreen");
     this.countdown = document.getElementById("countdown");
     this.addons = document.getElementById("addons");
+    this.mice = document.querySelectorAll(".main__game__hole__svg__mouse");
   }
   init() {
-    // this.startBtn.addEventListener("click", () => this.startGame());
+    this.startBtn.addEventListener("click", () => this.startGame());
   }
   startGame() {
     this.startScreen.classList.remove("active");
@@ -23,6 +24,10 @@ class Ui {
 
     audioElement.play();
     this.countdown.classList.add("active");
+    this.mice.forEach(mouse => {
+      mouse.classList.remove("visible");
+      mouse.addEventListener("click", e => this.selectMouse(e));
+    })
 
     timer = setInterval(() => {
       if (counter) {
