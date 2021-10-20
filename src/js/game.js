@@ -32,6 +32,7 @@ class Game {
   }
   updateScore() {
     this.score++;
+    return ui.updateAddons(null, this.score);
   }
 }
 
