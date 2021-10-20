@@ -58,7 +58,16 @@ class Ui {
     return game.getNextMouse();
   }
   updateAddons(time, score) {
-    if (score !== null) {
+    if (time !== null) {
+      time = String(time);
+
+      if (time.length === 1) { // check length
+        time = "0" + time;
+      }
+
+      this.time.innerHTML = `${time}:00`;
+    }
+    else if (score !== null) {
       this.score.innerHTML = score;
     }
   }
