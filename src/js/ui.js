@@ -35,18 +35,23 @@ class Ui {
         counter--;
       } else {
         timerElement.innerHTML = "Go!";
+        clearInterval(timer);
 
         setTimeout(() => {
           this.countdown.classList.remove("active");
           this.addons.classList.add("active");
-          game.init();
-          return clearInterval(timer);
+          return game.init();
         }, 1000)
       }
     }, 1000)
   }
   selectMouse(e) {
     console.log(e.currentTarget.getAttribute("data-index"));
+  }
+  showMouse(index) {
+    const mouse = document.querySelector(`[data-index="${index}"]`);
+
+    mouse.classList.add("visible");
   }
 }
 

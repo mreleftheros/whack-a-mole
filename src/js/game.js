@@ -13,9 +13,9 @@ class Game {
   }
   init() {
     this.reset();
-    this.setRandomMouse();
+    this.setRandomMouseIndex();
   }
-  setRandomMouse() {
+  setRandomMouseIndex() {
     let randomIndex;
     
     do {
@@ -23,7 +23,7 @@ class Game {
     } while (randomIndex === this.lastMouseIndex)
 
     this.lastMouseIndex = randomIndex;
-
+    
     return ui.showMouse(randomIndex);
   }
   selectMouse() {
