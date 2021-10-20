@@ -44,8 +44,9 @@ body {
   box-shadow: 0 0 5px #000;
 }
 .main__start-screen__message {
-  font-size: 3rem;
+  font-size: 2rem;
   letter-spacing: 0.1rem;
+  text-align: center;
 }
 .main__start-screen__btn {
   border: none;
