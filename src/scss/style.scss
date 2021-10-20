@@ -75,6 +75,7 @@
 
   // game
   &__game {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     height: 100vh;
@@ -82,6 +83,63 @@
     width: 100%;
     max-width: 100rem;
     margin: auto;
+
+    // addons
+    &__addons {
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 3rem;
+      padding: 0 .5rem;
+
+      // timer
+      &__timer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 8rem;
+        height: 100%;
+        
+        &__icon {
+          flex-basis: 50%;
+          display: inline-block;
+          font-size: 2rem;
+        }
+
+        &__value {
+          flex-basis: 50%;
+          font-size: 2rem;
+          font-weight: bold;
+        }
+      }
+
+      // score
+      &__score {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 6rem;
+        height: 100%;
+        
+        &__icon {
+          flex-basis: 50%;
+          display: inline-block;
+          color: red;
+          font-size: 3rem;
+          transform: translateY(-.3rem);
+        }
+
+        &__value {
+          flex-basis: 50%;
+          font-size: 2rem;
+          font-weight: bold;
+        }
+      }
+    }
     
     &__hole {
       position: relative;

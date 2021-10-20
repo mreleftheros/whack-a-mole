@@ -20,11 +20,11 @@ class Ui {
     let counter = 3;
     let timer;
 
-    this.countdown.classList.add("active");
     audioElement.play();
+    this.countdown.classList.add("active");
 
     timer = setInterval(() => {
-      if(counter) {
+      if (counter) {
         timerElement.innerHTML = counter;
         counter--;
       } else {
@@ -33,7 +33,7 @@ class Ui {
         setTimeout(() => {
           this.countdown.classList.remove("active");
           game.init();
-          clearInterval(timer);
+          return clearInterval(timer);
         }, 1000)
       }
     }, 1000)
