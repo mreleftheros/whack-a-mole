@@ -5,9 +5,10 @@ class Ui {
     this.startBtn = document.getElementById("startBtn");
     this.startScreen = document.getElementById("startScreen");
     this.countdown = document.getElementById("countdown");
+    this.addons = document.getElementById("addons");
   }
   init() {
-    this.startBtn.addEventListener("click", () => this.startGame());
+    // this.startBtn.addEventListener("click", () => this.startGame());
   }
   startGame() {
     this.startScreen.classList.remove("active");
@@ -32,6 +33,7 @@ class Ui {
 
         setTimeout(() => {
           this.countdown.classList.remove("active");
+          this.addons.classList.add("active");
           game.init();
           return clearInterval(timer);
         }, 1000)

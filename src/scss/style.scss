@@ -85,9 +85,13 @@
     margin: auto;
 
     // addons
+    &__addons.active {
+      display: flex;
+    }
+
     &__addons {
       position: absolute;
-      display: flex;
+      display: none;
       justify-content: space-between;
       top: 0;
       left: 0;

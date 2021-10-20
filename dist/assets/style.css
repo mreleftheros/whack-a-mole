@@ -87,9 +87,12 @@ body {
   max-width: 100rem;
   margin: auto;
 }
+.main__game__addons.active {
+  display: flex;
+}
 .main__game__addons {
   position: absolute;
-  display: flex;
+  display: none;
   justify-content: space-between;
   top: 0;
   left: 0;
