@@ -44,7 +44,7 @@ class Ui {
 
         setTimeout(() => {
           this.countdown.classList.remove("active");
-          this.timerElement.innerHTML = "";
+          timerElement.innerHTML = "";
           return game.init();
         }, 1000)
       }
